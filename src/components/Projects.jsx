@@ -1,8 +1,9 @@
 import { motion } from 'framer-motion';
 import { useInView } from 'framer-motion';
+import { col } from 'framer-motion/client';
 import { useRef } from 'react';
 import { FaGithub, FaExternalLinkAlt, FaReact, FaNodeJs, FaPython, FaDocker, FaStripe } from 'react-icons/fa';
-import { SiMongodb, SiNextdotjs, SiTypescript, SiPostgresql, SiTailwindcss, SiChartdotjs, SiExpress, SiRedis, SiOpenai } from 'react-icons/si';
+import { SiMongodb, SiNextdotjs, SiTypescript, SiPostgresql, SiTailwindcss, SiChartdotjs, SiExpress, SiSupabase, SiOpenai, SiFlutter, SiGooglegemini, SiGoogleappsscript, SiGooglesheets, SiMercadopago, SiKotlin, SiFirebase, SiSpringboot} from 'react-icons/si';
 
 const Projects = () => {
   const ref = useRef(null);
@@ -14,51 +15,76 @@ const Projects = () => {
     'Node.js': { icon: FaNodeJs, color: '#339933' },
     'MongoDB': { icon: SiMongodb, color: '#47A248' },
     'Stripe': { icon: FaStripe, color: '#635BFF' },
+    'Flutter': { icon: SiFlutter, color: '#3396d8' },
     'Next.js': { icon: SiNextdotjs, color: '#ffffff' },
     'TypeScript': { icon: SiTypescript, color: '#3178C6' },
     'PostgreSQL': { icon: SiPostgresql, color: '#4169E1' },
     'Tailwind': { icon: SiTailwindcss, color: '#06B6D4' },
     'Chart.js': { icon: SiChartdotjs, color: '#FF6384' },
     'Express': { icon: SiExpress, color: '#ffffff' },
-    'Redis': { icon: SiRedis, color: '#DC382D' },
     'Python': { icon: FaPython, color: '#3776AB' },
     'OpenAI': { icon: SiOpenai, color: '#412991' },
     'Docker': { icon: FaDocker, color: '#2496ED' },
+    'Supabase': { icon: SiSupabase, color: '#15c14c' },
+    'Google Gemini': { icon: SiGooglegemini, color: '#eaff07' },
+    'Google Apps Script': { icon: SiGoogleappsscript, color: '#f4b042' },
+    'Google Sheets': { icon: SiGooglesheets, color: '#0f9d58' },
+    'Mercado Pago': { icon: SiMercadopago, color: '#fff30e' },
+    'Kotlin': { icon: SiKotlin, color: '#7F52FF' }, 
+    'Firebase': { icon: SiFirebase, color: '#FFCA28' },
+    'Spring Boot': { icon: SiSpringboot, color: '#6DB33F' },  
   };
 
   const projects = [
     {
-      title: 'E-Commerce Platform',
-      description: 'Plataforma completa de comercio electrónico con carrito de compras, autenticación y pasarela de pagos.',
-      image: 'https://images.unsplash.com/photo-1557821552-17105176677c?w=800&q=80',
-      technologies: ['React', 'Node.js', 'MongoDB', 'Stripe'],
-      github: 'https://github.com/tu-usuario/proyecto1',
-      demo: 'https://proyecto1-demo.com',
+      title: 'CoFi',
+      description: 'Aplicación web y móvil orientada a la gestión de finanzas colaborativas para estudiantes de TECSUP. Permite ingresos, egresos, presupuestos compartidos, reportes en tiempo real y recomendaciones con IA.',
+      image: 'https://i.ibb.co/8gqbBGwB/cofiapp.png',
+      technologies: ['Next.js', 'TypeScript', 'Flutter', 'Supabase', 'TypeScript',  'Tailwind', 'Google Gemini'],
+      github: 'https://github.com/ErickGC546/C24_6_2025-2_G15_CoFi_B',
+      demo: 'https://co-fi-web.vercel.app',
     },
     {
-      title: 'Task Management App',
-      description: 'Aplicación de gestión de tareas con drag & drop, colaboración en tiempo real y notificaciones.',
-      image: 'https://images.unsplash.com/photo-1484480974693-6ca0a78fb36b?w=800&q=80',
-      technologies: ['Next.js', 'TypeScript', 'PostgreSQL', 'Tailwind'],
-      github: 'https://github.com/tu-usuario/proyecto2',
-      demo: 'https://proyecto2-demo.com',
+      title: "The Gentleman's Cut",
+      description: 'Aplicación web landing page para una barbería, pensada para promocionar servicios de barbería premium y facilitar que los clientes consulten o reserven citas de forma rápida.',
+      image: 'https://i.ibb.co/qLvGZ3ct/The-Gentlemans-Cut.png',
+      technologies: ['React', 'Google Apps Script', 'Tailwind', 'Google Sheets'],
+      github: 'https://github.com/ErickGC546/Barber_reserva',
+      demo: 'https://the-gentlemanscut.netlify.app',
     },
     {
-      title: 'Social Media Dashboard',
-      description: 'Dashboard analítico para redes sociales con visualización de datos y métricas en tiempo real.',
-      image: 'https://images.unsplash.com/photo-1460925895917-afdab827c52f?w=800&q=80',
-      technologies: ['React', 'Chart.js', 'Express', 'Redis'],
-      github: 'https://github.com/tu-usuario/proyecto3',
-      demo: 'https://proyecto3-demo.com',
+      title: 'Ecommer Y2K',
+      description: 'Aplicación web de tienda de ropa de calle o streetwear de estilo deportivo, la tienda tiene como método de pago mercado pago que es seguro para los usuarios.',
+      image: 'https://i.ibb.co/3yzYPK67/y2kapp.png',
+      technologies: ['Next.js', 'Node.js', 'TypeScript', 'Tailwind', 'Supabase', 'Mercado Pago'],
+      github: 'https://github.com/ErickGC546/y2k',
+      demo: 'https://y2k-ecommerce.vercel.app',
     },
     {
-      title: 'AI Chat Application',
-      description: 'Aplicación de chat con inteligencia artificial, procesamiento de lenguaje natural y respuestas contextuales.',
-      image: 'https://images.unsplash.com/photo-1531746790731-6c087fecd65a?w=800&q=80',
-      technologies: ['React', 'Python', 'OpenAI', 'Docker'],
-      github: 'https://github.com/tu-usuario/proyecto4',
-      demo: 'https://proyecto4-demo.com',
+      title: 'NowWatch',
+      description: 'Aplicación web que el usuario puede ver canales nacionales y extranjeros, en alta calidad que son mas de 360 canales que contiene la aplicación noWatch',
+      image: 'https://i.ibb.co/Gf9vPnbr/nowwatchapp.png',
+      technologies: ['React', 'Tailwind', 'Kotlin', 'Firebase', 'Spring Boot'],
+      github: 'https://github.com/ErickGC546/C24_4_2024-2_G2B_nowwatch',
+      demo: 'https://nowwatch-three.vercel.app',
     },
+     {
+      title: 'Transpo App',
+      description: 'Aplicación web y móvil orientada a la conexión entre pasajeros y conductores cercanos. Integra geolocalización en tiempo real, selección de destinos mediante mapa interactivo y generación automática de rutas óptimas para cada viaje',
+      image: 'https://i.ibb.co/N6wj4bQg/transpoapp.png',
+      technologies: ['Flutter', 'Express', 'React', 'Supabase', 'Tailwind'],
+      github: 'https://github.com/ErickGC546/transpoapp',
+      demo: 'https://traspoapp.netlify.app',
+    },
+     {
+      title: 'DataWare360',
+      description: 'Aplicación web para una consultora de tecnología enfocada en desarrollo de software, análisis de datos y consultoría técnica para startups y negocios en crecimiento. ',
+      image: 'https://i.ibb.co/ptW2Mg9/dataware360app.png',
+      technologies: ['React', 'TypeScript', 'Tailwind', 'Firebase'],
+      github: 'https://github.com/ErickGC546/dataware360-web',
+      demo: 'https://dataware360.netlify.app',
+    },
+
   ];
 
   const containerVariants = {
@@ -149,7 +175,7 @@ const Projects = () => {
                   <div style={{
                     position: 'absolute',
                     inset: 0,
-                    background: 'linear-gradient(to top, #020617 0%, transparent 100%)'
+                    background: 'linear-gradient(to top, #020617 0%, transparent 70%)'
                   }}></div>
                 </div>
 

@@ -4,11 +4,7 @@ import { useRef, useState } from 'react';
 import { 
   FaReact, 
   FaNodeJs, 
-  FaPython, 
   FaGitAlt, 
-  FaDocker,
-  FaHtml5,
-  FaCss3Alt,
   FaJs
 } from 'react-icons/fa';
 import { 
@@ -18,8 +14,8 @@ import {
   SiTypescript,
   SiExpress,
   SiNextdotjs,
-  SiVite,
-  SiRedux
+  SiFlutter,
+  SiMysql
 } from 'react-icons/si';
 
 const Skills = () => {
@@ -28,18 +24,18 @@ const Skills = () => {
   const [hoveredIndex, setHoveredIndex] = useState(null);
 
   const skills = [
-    { name: 'React', icon: FaReact, color: '#61DAFB' },
     { name: 'Node.js', icon: FaNodeJs, color: '#339933' },
     { name: 'TypeScript', icon: SiTypescript, color: '#3178C6' },
     { name: 'JavaScript', icon: FaJs, color: '#F7DF1E' },
     { name: 'Next.js', icon: SiNextdotjs, color: '#ffffff' },
+    { name: 'Express', icon: SiExpress, color: '#ffffff'},
+    { name: 'Flutter', icon: SiFlutter, color: '#3396d8' },
+    { name: 'React', icon: FaReact, color: '#61DAFB' },
     { name: 'Tailwind CSS', icon: SiTailwindcss, color: '#06B6D4' },
     { name: 'MongoDB', icon: SiMongodb, color: '#47A248' },
     { name: 'PostgreSQL', icon: SiPostgresql, color: '#4169E1' },
-    { name: 'Express', icon: SiExpress, color: '#ffffff' },
-    { name: 'Python', icon: FaPython, color: '#3776AB' },
+    { name: 'MySQL', icon: SiMysql, color: '#4479A1' },
     { name: 'Git', icon: FaGitAlt, color: '#F05032' },
-    { name: 'Docker', icon: FaDocker, color: '#2496ED' },
   ];
 
   const containerVariants = {

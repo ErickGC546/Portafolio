@@ -1,5 +1,6 @@
 import { motion } from 'framer-motion';
 import { FaGithub, FaLinkedin, FaEnvelope, FaChevronDown } from 'react-icons/fa';
+import Typewriter from 'typewriter-effect';
 
 const Hero = () => {
   const scrollToSection = (id) => {
@@ -16,11 +17,6 @@ const Hero = () => {
     })
   };
 
-  const floatingAnimation = {
-    y: [0, -10, 0],
-    transition: { duration: 3, repeat: Infinity, ease: 'easeInOut' }
-  };
-
   return (
     <section 
       id="hero" 
@@ -34,25 +30,23 @@ const Hero = () => {
         position: 'relative'
       }}
     >
-      <div style={{ maxWidth: '800px', width: '100%', textAlign: 'center', margin: '0 auto' }}>
-        <motion.div
-          initial="hidden"
-          animate="visible"
-        >
-          <motion.p
-            custom={0}
-            variants={textVariants}
-            style={{
-              fontSize: '1rem',
-              color: '#0ea5e9',
-              marginBottom: '16px',
-              letterSpacing: '3px',
-              textTransform: 'uppercase'
-            }}
+      <div
+        style={{
+          maxWidth: '1100px',
+          width: '100%',
+          margin: '0 auto',
+          display: 'flex',
+          alignItems: 'center',
+          justifyContent: 'center',
+          gap: '40px',
+          flexWrap: 'wrap'
+        }}
+      >
+        <div style={{ flex: '1 1 480px', minWidth: '320px', textAlign: 'left' }}>
+          <motion.div
+            initial="hidden"
+            animate="visible"
           >
-            Bienvenido a mi portafolio
-          </motion.p>
-          
           <motion.h1 
             custom={1}
             variants={textVariants}
@@ -66,7 +60,7 @@ const Hero = () => {
               backgroundClip: 'text'
             }}
           >
-            Erick Dev
+            Erick Galindo
           </motion.h1>
           
           <motion.p 
@@ -74,13 +68,21 @@ const Hero = () => {
             variants={textVariants}
             style={{ fontSize: 'clamp(1.25rem, 4vw, 1.75rem)', color: '#d1d5db', marginBottom: '16px', fontWeight: '300' }}
           >
-            Full Stack Developer
+            <Typewriter 
+              options={{
+                strings: ['Junior Full Stack Developer', 'Web Developer', 'UX/IU Designer', 'Problem Solver', 'Innovator'],
+                autoStart: true,
+                loop: true,
+                deleteSpeed: 50,
+                delay: 100
+              }}
+            />
           </motion.p>
           
           <motion.p 
             custom={3}
             variants={textVariants}
-            style={{ fontSize: 'clamp(0.95rem, 2vw, 1.1rem)', color: '#9ca3af', maxWidth: '550px', margin: '0 auto 40px auto', lineHeight: '1.7', padding: '0 16px' }}
+            style={{ fontSize: 'clamp(0.95rem, 2vw, 1.1rem)', color: '#9ca3af', maxWidth: '550px', marginBottom: '32px', lineHeight: '1.7', paddingRight: '8px' }}
           >
             Construyendo experiencias web modernas con código limpio y soluciones innovadoras
           </motion.p>
@@ -90,13 +92,12 @@ const Hero = () => {
           initial={{ opacity: 0, y: 30 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8, delay: 0.6 }}
-          style={{ display: 'flex', gap: '16px', justifyContent: 'center', marginBottom: '48px', flexWrap: 'wrap' }}
+          style={{ display: 'flex', gap: '16px', marginBottom: '32px', flexWrap: 'wrap' }}
         >
           <motion.button
             onClick={() => scrollToSection('projects')}
             whileHover={{ scale: 1.05, boxShadow: '0 0 30px rgba(14, 165, 233, 0.5)' }}
             whileTap={{ scale: 0.95 }}
-            animate={floatingAnimation}
             style={{
               padding: '16px 32px',
               backgroundColor: '#0ea5e9',
@@ -134,7 +135,7 @@ const Hero = () => {
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
           transition={{ duration: 0.8, delay: 0.8 }}
-          style={{ display: 'flex', gap: '32px', justifyContent: 'center' }}
+          style={{ display: 'flex', gap: '20px', alignItems: 'center' }}
         >
           {[
             { icon: FaGithub, href: 'https://github.com/ErickGC546', color: '#ffffff' },
@@ -149,14 +150,54 @@ const Hero = () => {
               whileHover={{ scale: 1.3, y: -5, color: social.color }}
               whileTap={{ scale: 0.9 }}
               animate={{ 
-                y: [0, -5, 0],
+                y: [0, -4, 0],
                 transition: { delay: i * 0.2, duration: 2, repeat: Infinity }
               }}
-              style={{ color: '#9ca3af', fontSize: '1.75rem' }}
+              style={{ color: '#9ca3af', fontSize: '1.6rem' }}
             >
               <social.icon />
             </motion.a>
           ))}
+        </motion.div>
+        </div>
+
+        <motion.div
+          initial={{ opacity: 0, y: 20 }}
+          animate={{
+            opacity: 1,
+            y: 0,
+            boxShadow: [
+              '0 18px 45px #3b83f63d, 0 0 18px rgba(96, 165, 250, 0.18)',
+              '0 18px 45px rgba(255, 255, 255, 0.22), 0 0 48px rgba(59, 130, 246, 0.5)',
+              '0 18px 45px rgba(255, 255, 255, 0.12), 0 0 18px rgba(96, 165, 250, 0.18)'
+            ]
+          }}
+          transition={{
+            duration: 0.9,
+            delay: 0.4,
+            boxShadow: { duration: 2.8, repeat: Infinity, ease: 'easeInOut' }
+          }}
+          style={{
+            flex: '0 1 360px',
+            maxWidth: '380px',
+            width: '100%',
+            borderRadius: '18px',
+            overflow: 'hidden',
+            border: '1px solid rgba(96, 165, 250, 0.35)',
+            background: 'linear-gradient(145deg, rgba(255,255,255,0.04), rgba(255,255,255,0.01))'
+          }}
+        >
+          <img
+            src="https://cdn.oreateai.com/aiimage/strategy/699a30ab49334c119a20d3b9fd6a5a5d.jpg"
+            alt="Perfil creativo"
+            style={{
+              display: 'block',
+              width: '100%',
+              height: '100%',
+              objectFit: 'cover',
+              boxShadow: 'inset 0 0 40px rgba(255,255,255,0.08)'
+            }}
+          />
         </motion.div>
       </div>
 

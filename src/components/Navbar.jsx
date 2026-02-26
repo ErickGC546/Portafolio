@@ -21,11 +21,11 @@ const Navbar = () => {
   };
 
   const navLinks = [
-    { name: 'Inicio', id: 'hero' },
-    { name: 'Sobre Mí', id: 'about' },
+    { name: 'Home', id: 'hero' },
+    { name: 'About', id: 'about' },
     { name: 'Skills', id: 'skills' },
-    { name: 'Proyectos', id: 'projects' },
-    { name: 'Contacto', id: 'contact' },
+    { name: 'Projects', id: 'projects' },
+    { name: 'Contact', id: 'contact' },
   ];
 
   return (
