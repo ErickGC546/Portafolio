@@ -5,6 +5,7 @@ import { FaBars, FaTimes } from 'react-icons/fa';
 const Navbar = () => {
   const [isOpen, setIsOpen] = useState(false);
   const [scrolled, setScrolled] = useState(false);
+  const NAVBAR_HEIGHT = 80;
 
   useEffect(() => {
     const handleScroll = () => {
@@ -16,8 +17,22 @@ const Navbar = () => {
 
   const scrollToSection = (id) => {
     const element = document.getElementById(id);
-    element?.scrollIntoView({ behavior: 'smooth' });
-    setIsOpen(false);
+    if (!element) return;
+
+    const performScroll = () => {
+      const top = element.getBoundingClientRect().top + window.pageYOffset - NAVBAR_HEIGHT;
+      window.scrollTo({ top, behavior: 'smooth' });
+    };
+
+    if (isOpen) {
+      setIsOpen(false);
+      requestAnimationFrame(() => {
+        requestAnimationFrame(performScroll);
+      });
+      return;
+    }
+
+    performScroll();
   };
 
   const navLinks = [
@@ -41,7 +56,7 @@ const Navbar = () => {
         backgroundColor: scrolled ? 'rgba(2, 6, 23, 0.95)' : 'transparent',
         backdropFilter: scrolled ? 'blur(12px)' : 'none',
         boxShadow: scrolled ? '0 4px 6px -1px rgba(0, 0, 0, 0.3)' : 'none',
-        transition: 'all 0.3s ease'
+        transition: 'background-color 0.3s ease, box-shadow 0.3s ease, backdrop-filter 0.3s ease'
       }}
     >
       <div style={{ maxWidth: '1200px', margin: '0 auto', padding: '0 24px' }}>
@@ -94,7 +109,11 @@ const Navbar = () => {
               border: 'none',
               color: '#d1d5db',
               fontSize: '1.5rem',
-              cursor: 'pointer'
+              cursor: 'pointer',
+              width: '40px',
+              height: '40px',
+              padding: 0,
+              lineHeight: 1
             }}
             className="mobile-menu-btn"
           >
@@ -146,7 +165,11 @@ const Navbar = () => {
         }
         @media (max-width: 767px) {
           .desktop-menu { display: none !important; }
-          .mobile-menu-btn { display: block !important; }
+          .mobile-menu-btn {
+            display: inline-flex !important;
+            align-items: center;
+            justify-content: center;
+          }
         }
       `}</style>
     </motion.nav>

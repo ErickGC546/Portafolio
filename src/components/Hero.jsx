@@ -26,7 +26,7 @@ const Hero = () => {
         alignItems: 'center',
         justifyContent: 'center',
         background: 'linear-gradient(to bottom, #020617, #0f172a)',
-        padding: '100px 24px 60px 24px',
+        padding: '100px 24px clamp(110px, 16vh, 150px) 24px',
         position: 'relative'
       }}
     >
@@ -63,7 +63,7 @@ const Hero = () => {
             Erick Galindo
           </motion.h1>
           
-          <motion.p 
+          <motion.div 
             custom={2}
             variants={textVariants}
             style={{ fontSize: 'clamp(1.25rem, 4vw, 1.75rem)', color: '#d1d5db', marginBottom: '16px', fontWeight: '300' }}
@@ -77,7 +77,7 @@ const Hero = () => {
                 delay: 100
               }}
             />
-          </motion.p>
+          </motion.div>
           
           <motion.p 
             custom={3}
@@ -167,7 +167,7 @@ const Hero = () => {
             opacity: 1,
             y: 0,
             boxShadow: [
-              '0 18px 45px #3b83f63d, 0 0 18px rgba(96, 165, 250, 0.18)',
+              '0 18px 45px rgba(255, 255, 255, 0.07), 0 0 18px rgba(96, 165, 250, 0.18)',
               '0 18px 45px rgba(255, 255, 255, 0.22), 0 0 48px rgba(59, 130, 246, 0.5)',
               '0 18px 45px rgba(255, 255, 255, 0.12), 0 0 18px rgba(96, 165, 250, 0.18)'
             ]
@@ -209,11 +209,12 @@ const Hero = () => {
         onClick={() => scrollToSection('about')}
         style={{
           position: 'absolute',
-          bottom: '40px',
+          bottom: '24px',
           left: '50%',
           transform: 'translateX(-50%)',
           cursor: 'pointer',
-          color: '#6b7280'
+          color: '#6b7280',
+          zIndex: 2
         }}
       >
         <FaChevronDown style={{ fontSize: '1.5rem' }} />
