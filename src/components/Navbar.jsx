@@ -59,7 +59,7 @@ const Navbar = () => {
               cursor: 'pointer'
             }}
           >
-            {'<Dev EG/>'}
+            {'<EG Dev/>'}
           </motion.div>
 
           {/* Desktop Menu */}
